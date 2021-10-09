@@ -1,10 +1,9 @@
-
 #include <iostream>
 using namespace std;
 
 int main()
 {
-	setlocale(LC_ALL, "rus");
+	setlocale(LC_ALL, "rus");;
 	float x, n, k,prod;   //prod - произведение
 
 	cout << "\n Введите число x\n> ";
@@ -18,7 +17,7 @@ int main()
 		prod *= ((n / 2) + x);
 		cout << "\nПри n = " << n << "\t P = " << prod << "\n";
 	}
-	cout << "\n" ; 
+	cout << "\n" ;
 	system("pause");
 	return 0;
 }
