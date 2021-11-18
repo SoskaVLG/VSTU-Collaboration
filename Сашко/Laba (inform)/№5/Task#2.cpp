@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
 	setlocale(LC_ALL, "rus");
-	int N, M, i, j, negative_counter = 0, negative_i = 0, negative_j = 0, imin = 0, jmin = 0 , current_j;
+	int N, M, i, j, negative_counter = 0, negative_i = 0, negative_j = 0, imin = 0, jmin = 0;
 	float A[50][50], min, second_negative_number;
 	cout << "\n Введите количество строк в массиве\n> ";
 	cin >> N;
@@ -33,7 +33,7 @@ int main()
 	}
 	// общий внешний цикл по столбцам
 	for (j = 0; j < M; j++)
-	{ 
+	{
 		min = A[0][j];
 		negative_counter = 0;
 
@@ -48,8 +48,8 @@ int main()
 			}
 		}
 		min = A[imin][j];
-		jmin = j; 
-		
+		jmin = j;
+
 		// внутренний цикл по строкам для поиска второго отрицательного числа в столбце
 		for (i = 0; i < N; i++)
 		{
