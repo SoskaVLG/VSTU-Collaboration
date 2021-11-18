@@ -1,5 +1,5 @@
 #include <iostream>
-#include <math.h>
+
 
 using namespace std;
 
@@ -61,7 +61,7 @@ int main()
 		cout << "\n\nmin = " << min << "\nС индексом [" << imin << "," << jmin << "]";
 
 		A[imax][jmax] = min;
-		cout << "\n\nЗамена A [" << imax << "," << imax << "] = " << max << "  на " << min;
+		cout << "\n\nЗамена A [" << imax << "," << jmax << "] = " << max << "  на " << min;
 	}
 
 	else cout << "\n\nНевозможно найти минимум, т.к максимум находится в первом столбце ( по индексу 0 )\n";
