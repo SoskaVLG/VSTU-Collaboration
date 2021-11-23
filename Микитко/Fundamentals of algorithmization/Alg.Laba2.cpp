@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <math.h>
 #include <ctime>
 using namespace std;
@@ -8,7 +8,11 @@ void main()
 	int const size = 100;
 	int A[size];
 	int n;
+<<<<<<< HEAD
 	int i, k = 1, counter;
+=======
+	int i, k = 1, counter; 
+>>>>>>> 0a3795124c0a27b62d566167e7fae3a58b5a699c
 	srand(time(NULL));
 	cout << "\nВведите значение n" << endl;
 	cin >> n;
@@ -33,9 +37,15 @@ void main()
 			i = n; // тута ошибка была
 		}
 	}
+<<<<<<< HEAD
 	cout << "counter = " << counter;
 	cout << "\n Вывод измененного массива" << endl;
 	for (i = n - counter - 1; i < n; i++)			// n-counter-1 - первый элемент,который умножается на k 
+=======
+	cout << "counter = " << counter; 
+	cout << "\n Вывод измененного массива" << endl;
+	for (i = n-counter-1; i < n; i++)			// n-counter-1 - первый элемент,который умножается на k 
+>>>>>>> 0a3795124c0a27b62d566167e7fae3a58b5a699c
 	{
 		A[i] *= k;
 
@@ -47,5 +57,8 @@ void main()
 
 
 }
+<<<<<<< HEAD
 
 }
+=======
+>>>>>>> 0a3795124c0a27b62d566167e7fae3a58b5a699c
