@@ -35,7 +35,7 @@ void main()
 
 		}
 	}
-	for (i = n - counter; i < n; i++)
+	for (i = n - counter -1 ; i < n; i++)
 	{
 		A[i] *= k;
 	}
