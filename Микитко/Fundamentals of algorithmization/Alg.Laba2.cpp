@@ -30,8 +30,10 @@ void main()
 		{
 			k = A[i];
 			counter = i;
+			i = n; // тута ошибка была
 		}
 	}
+	cout << "counter = " << counter; 
 	cout << "\n Вывод измененного массива" << endl;
 	for (i = n-counter-1; i < n; i++)			// n-counter-1 - первый элемент,который умножается на k 
 	{
