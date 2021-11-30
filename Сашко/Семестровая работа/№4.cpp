@@ -1,74 +1,89 @@
 #include <iostream>
+using namespace std;
 
-using namespace std; 
-
-int main () 
+void input(float X[10][20], int a, int b)
 {
-	setlocale(LC_ALL, "rus");
-	int N, M, i, j , imax = 0  , jmax = 0;
-	float A[50][50], last_line_sum = 0 , max = 0;
-	cout << "\nВведите количество строк в массиве\n> ";
-	cin >> N;
-	cout << "\nВведите количество столбцов в массиве\n> ";
-	cin >> M;
-	
-	// ввод матрицы
-	cout << "\n\n"; 
-	for (i = 0; i < N; i++)
+	for (int i = 0; i < a; i++)
 	{
-		for (j = 0; j < M; j++)
+		for (int j = 0; j < b; j++)
 		{
-			cout << "A [ " << i << "," << j << "] = ";
-			cin >> A[i][j];
+			cout << "\nA[" << i << ", " << j << "] = ";
+			cin >> X[i][j];
 		}
 	}
-	// поиск суммы последней строки матрицы
-	i = N - 1; 
-	for (j = 0; j < M; j++)
+}
+void print(float X[10][20], int a, int b)
+{
+	for (int i = 0; i < a; i++)
 	{
-		last_line_sum += A[i][j]; 
+		for (int j = 0; j < b; j++)
+		{
+			cout << "\nA[" << i << ", " << j << "] = " << X [i][j];
+		}
 	}
-	cout << "\n\nlast_line_sum = " << last_line_sum; 
-	// замена последнего элемента первой строки на сумму последней строки 
-	if (last_line_sum > 0)
+}
+float summ(float X[10][20], int a, int b)
+{
+	int i = a - 1;
+	float last_line_sum = 0; 
+	for (int j = 0; j < b; j++)
 	{
-		cout << "\n\nЗамена A [ " << 0 << "," << M - 1 << "] = " << A[0][M - 1] << " на " << last_line_sum; 
-		A[0][M - 1] = last_line_sum;
-		
+		last_line_sum += X[i][j];
 	}
+	return last_line_sum; 
+}
 
-	// поиск и замена максимального элемента всей матрицы на сумму последней строки
+
+void change (float X[10][20], int a, int b ,float S)
+{
+
+	if (S > 0) X[0][b - 1] = S;
 	else 
 	{
-		max = A[0][0];
-		for (i = 0; i < N; i++)
-		{
-			for (j = 0; j < M; j++)
-			{
-				if (A[i][j] > max)
+		float max = X[0][0];
+		int imax, jmax;
+		for (int i = 0; i < a; i++)
+			for (int j = 0; j < b; j++)
+			
+				if (X[i][j] > max)
 				{
-					max = A[i][j];
+					max = X[i][j];
 					imax = i;
 					jmax = j;
 				}
-
-			}
-		}
-		A[imax][jmax] = last_line_sum; 
-		cout << "\n\nmax = " << max;
-		cout << "\n\nЗамена A [ " << imax << "," << jmax << "] = " << max << " на " << last_line_sum;
+			
+		
+		X[imax][jmax] = S;
 	}
+	
+}
 
 
-	// вывод конечной матрицы
-	cout << "\n\nКонечная матрица : \n"; 
-	for (i = 0; i < N; i++)
-	{
-		for (j = 0; j < M; j++)
-		{
-			cout << "\nA [ " << i << "," << j << "] = " << A [i][j];
-		}
-	}
 
-	return 0; 
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	float A[10][20];
+	int N;
+	int M;
+	float last_line_sum = 0; 
+
+	cout << "\nВведите количество строк в массиве\n";
+	cin >> N;
+	cout << "\nВведите количество строк в массиве\n";
+	cin >> M;
+
+	input(A,N,M);
+
+	cout << "\nИсходный массив :\n";
+	print(A, N, M);
+
+	last_line_sum = summ(A, N, M);
+	cout << "\n\nСумма последней строки = " << last_line_sum;
+
+	change(A, N, M, last_line_sum);
+
+	cout << "\nКонечный массив : \n"; 
+	print(A, N, M); 
+	return 0;
 }
