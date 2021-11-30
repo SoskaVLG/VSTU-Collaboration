@@ -42,7 +42,7 @@ void main()
 {
 	setlocale(LC_ALL, "ru");
 	float A[100][100];
-	int N, M, kplusmax, max, min, iindexmax, jindexmax, iindexmin, jindexmin, kplusmin;
+	int N, M;
 	cout << "\n Введите размерность матрицы N, M\n";
 	cin >> N >> M;
 	while (N > 100 || M > 100)
