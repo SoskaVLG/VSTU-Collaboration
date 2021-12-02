@@ -7,7 +7,7 @@ void input(float X[100][100], int a)
 	{
 		for (int j = 0; j < a; j++)
 		{
-			cout << "\nA[" << i << ", " << j << "] = ";
+			cout << "\nX[" << i << ", " << j << "] = ";
 			cin >> X[i][j];
 		}
 	}
@@ -18,7 +18,7 @@ void print(float X[100][100], int a)
 	{
 		for (int j = 0; j < a; j++)
 		{
-			cout << "\nA[" << i << ", " << j << "] = " << X [i][j];
+			cout << "\nX[" << i << ", " << j << "] = " << X [i][j];
 		}
 	}
 }
@@ -35,10 +35,9 @@ float matrix_track(float X[100][100], int a)
 
 void change(float X[100][100], int a , float Z)
 {
-	int i, j;
-	for (i = 0; i < a - 1; i++)
+	for (int i = 0; i < a - 1; i++)
 	{
-		for (j = i + 1; j < a  + 1; j++)
+		for (int j = i + 1; j < a  + 1; j++)
 		{
 			if (X[i][j] == 0) X[i][j] = Z; 
 		}
@@ -65,12 +64,20 @@ int main()
 	cin >> N_3;
 	input(X_3, N_3); 
 	
+	// вывод иcходных матриц
+	cout << "\nИсходная матрица X_1 :\n";
+	print(X_1, N_1);
+	cout << "\n\nИсходная матрица X_2 :\n";
+	print(X_2, N_2);
+	cout << "\n\nИсходная матрица X_3 :\n";
+	print(X_3, N_3);
+
 	//вычисление следов матриц
 	b_1 = matrix_track(X_1 , N_1);
-	cout << "\n След матрицы X_1 = " << b_1 << endl; 
 	b_2 = matrix_track(X_2 , N_2);
+	b_3 = matrix_track(X_3, N_3);
+	cout << "\n След матрицы X_1 = " << b_1 << endl;
 	cout << "\n След матрицы X_2 = " << b_2 << endl;
-	b_3 = matrix_track(X_3 , N_3);
 	cout << "\n След матрицы X_3 = " << b_3 << endl;
 	cout << "\nВведите y \n>";
 	cin >> y;
@@ -82,12 +89,12 @@ int main()
 	change(X_2, N_2, z);
 	change(X_3, N_3, z);
 	
-	// вывод иcходных матриц
-	cout << "\nИсходная матрица X_1 :\n";
+	// вывод конечных матриц
+	cout << "\nКонечная матрица X_1 :\n";
 	print(X_1, N_1);
-	cout << "\n\nИсходная матрица X_2 :\n";
+	cout << "\n\nКонечная матрица X_2 :\n";
 	print(X_2, N_2);
-	cout << "\n\nИсходная матрица X_3 :\n";
+	cout << "\n\nКонечная матрица X_3 :\n";
 	print(X_3, N_3);
 
 	return 0;
