@@ -15,12 +15,11 @@ int main()
 	cin >> c;
 	d = (a + b + c) / 3;
 	cout << "\nd = " << d << "\n";
-	if (d < 100) cout << "\n d > 100 ";
+	if (d < 100) cout << "\n d < 100 ";
 	else if (d == 100) cout << "a = " << a << " b = " << b << " c = " << c;
 	else if (d > 100)
 	{
 		float y = 0, x;
-		int counter = 0;
 		for (x = -4; x <= 4; x += 0.2)
 		{
 			y = 10 * pow(2.71, -a) * sqrt(x + 1) * sin(3.14 * x);
