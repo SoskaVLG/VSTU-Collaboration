@@ -14,7 +14,7 @@ void input(float A[50][50], int& a ,string name)
 		}
 	}
 }
-void print(float A[50][50], int& a, string name)
+void print(float A[50][50], int a, string name)
 {
 	cout << name <<"\n\n";
 	for (int i = 0; i < a; i++)
@@ -27,7 +27,7 @@ void print(float A[50][50], int& a, string name)
 	}
 	cout << "\n"; 
 }
-float average(float A[50][50], int& a, string name)
+float average(float A[50][50], int a, string name)
 {
 	float S_a = 0;
 	int counter = 0;
